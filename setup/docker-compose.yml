@@ -1,0 +1,17 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: wwi-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Taller2026!Claude"   # cámbiala si quieres; mínimo 8 chars, mayús/minús/número/símbolo
+      MSSQL_PID: "Developer"                   # edición gratuita, full features
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./backups:/var/opt/mssql/backups        # aquí van los .bak que descargues
+      - wwi-mssql-data:/var/opt/mssql           # persistencia de las DBs restauradas
+    restart: unless-stopped
+
+volumes:
+  wwi-mssql-data:

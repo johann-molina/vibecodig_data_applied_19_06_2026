@@ -1,0 +1,11 @@
+[project]
+name = "wwi-etl-modernize"
+version = "0.1.0"
+description = "Modernización en vivo del ETL legacy de WideWorldImporters a Python + DuckDB (Taller Claude Code · Sesión 3)"
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.0",   # única dependencia: DuckDB puro, sin pandas
+]
+
+[tool.uv]
+# uv run python modern/run_pipeline.py  -> resuelve duckdb automáticamente

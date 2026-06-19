@@ -82,6 +82,41 @@ target/
 profile_default/
 ipython_config.py
 
+# --- Lo que NO se sube al repo ---
+
+# Backups de SQL Server (se descargan con setup/restore.sh; ~120MB+)
+**/setup/backups/*.bak
+**/setup/backups/*.bacpac
+
+# Salidas que genera cada quien al correr el pipeline
+**/modern/output/*
+!**/modern/output/.gitkeep
+**/dashboard.html
+
+# Temporales del export (los .parquet SÍ se versionan, ver abajo)
+**/data/*.csv
+**/data/_*.csv
+
+# Entornos / caché de Python
+__pycache__/
+*.pyc
+.venv/
+*.duckdb
+*.duckdb.wal
+
+# MCP local (puede contener credenciales del SQL Server)
+.mcp.json
+
+# Material interno del presentador (no se publica)
+RUNBOOK.md
+prompt.md
+**/reference/rehearsal-notes.md
+
+# --- IMPORTANTE ---
+# data/*.parquet SÍ se versionan a propósito: así el repo corre SIN SQL Server (Camino A).
+# (Son datos de ejemplo de WideWorldImporters © Microsoft, redistribuibles para enseñanza.)
+
+
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:

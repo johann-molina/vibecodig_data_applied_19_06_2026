@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WideWorldImporters DW — Ventas</title>
+<style>
+  :root { --bg:#0f172a; --panel:#1e293b; --ink:#e2e8f0; --muted:#94a3b8; --line:#334155; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+          background:var(--bg); color:var(--ink); padding:28px; }
+  h1 { font-size:22px; margin:0 0 2px; }
+  .sub { color:var(--muted); font-size:13px; margin-bottom:22px; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .card .k { font-size:26px; font-weight:700; }
+  .card .t { color:var(--muted); font-size:12px; margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
+  .panel.wide { grid-column:1 / -1; }
+  .panel h2 { font-size:14px; margin:0 0 14px; color:var(--ink); font-weight:600; }
+  .row { display:flex; align-items:center; gap:10px; margin:7px 0; font-size:13px; }
+  .lbl { width:140px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .track { flex:1; background:#0b1220; border-radius:6px; overflow:hidden; height:18px; }
+  .bar { height:100%; border-radius:6px; }
+  .val { width:96px; text-align:right; font-variant-numeric:tabular-nums; }
+  footer { color:var(--muted); font-size:11px; margin-top:22px; }
+</style></head>
+<body>
+  <h1>WideWorldImporters DW — Ventas</h1>
+  <div class="sub">Generado por el pipeline moderno (DuckDB) · ingeniería inversa del ETL legacy · datos de demostración</div>
+
+  <div class="kpis">
+    <div class="card"><div class="k">S/ 198,043,439</div><div class="t">Ingresos (con IGV)</div></div>
+    <div class="card"><div class="k">228,265</div><div class="t">Líneas de venta</div></div>
+    <div class="card"><div class="k">663</div><div class="t">Clientes</div></div>
+    <div class="card"><div class="k">S/ 867.60</div><div class="t">Ticket promedio</div></div>
+  </div>
+
+  <div class="grid">
+    <div class="panel"><h2>Ingresos por categoría de cliente</h2><div class="row"><div class="lbl">Novelty Shop</div><div class="track"><div class="bar" style="width:100%;background:#38bdf8"></div></div><div class="val">S/ 141,663,238</div></div>
+<div class="row"><div class="lbl">Supermarket</div><div class="track"><div class="bar" style="width:12%;background:#38bdf8"></div></div><div class="val">S/ 16,509,320</div></div>
+<div class="row"><div class="lbl">Gift Store</div><div class="track"><div class="bar" style="width:9%;background:#38bdf8"></div></div><div class="val">S/ 13,432,558</div></div>
+<div class="row"><div class="lbl">Computer Store</div><div class="track"><div class="bar" style="width:9%;background:#38bdf8"></div></div><div class="val">S/ 13,289,956</div></div>
+<div class="row"><div class="lbl">Corporate</div><div class="track"><div class="bar" style="width:9%;background:#38bdf8"></div></div><div class="val">S/ 13,148,367</div></div></div>
+    <div class="panel"><h2>Top productos por ingreso</h2><div class="row"><div class="lbl">Air cushion machine (Blue)</div><div class="track"><div class="bar" style="width:100%;background:#a78bfa"></div></div><div class="val">S/ 12,773,339</div></div>
+<div class="row"><div class="lbl">32 mm Anti static bubble wrap (Blue) 50m</div><div class="track"><div class="bar" style="width:57%;background:#a78bfa"></div></div><div class="val">S/ 7,341,600</div></div>
+<div class="row"><div class="lbl">10 mm Anti static bubble wrap (Blue) 50m</div><div class="track"><div class="bar" style="width:57%;background:#a78bfa"></div></div><div class="val">S/ 7,278,431</div></div>
+<div class="row"><div class="lbl">20 mm Double sided bubble wrap 50m</div><div class="track"><div class="bar" style="width:56%;background:#a78bfa"></div></div><div class="val">S/ 7,146,468</div></div>
+<div class="row"><div class="lbl">32 mm Double sided bubble wrap 50m</div><div class="track"><div class="bar" style="width:56%;background:#a78bfa"></div></div><div class="val">S/ 7,118,776</div></div>
+<div class="row"><div class="lbl">10 mm Double sided bubble wrap 50m</div><div class="track"><div class="bar" style="width:54%;background:#a78bfa"></div></div><div class="val">S/ 6,834,450</div></div></div>
+    <div class="panel wide"><h2>Ingresos por mes</h2><div class="row"><div class="lbl">2013-01</div><div class="track"><div class="bar" style="width:73%;background:#34d399"></div></div><div class="val">S/ 4,335,973</div></div>
+<div class="row"><div class="lbl">2013-02</div><div class="track"><div class="bar" style="width:54%;background:#34d399"></div></div><div class="val">S/ 3,193,305</div></div>
+<div class="row"><div class="lbl">2013-03</div><div class="track"><div class="bar" style="width:75%;background:#34d399"></div></div><div class="val">S/ 4,451,082</div></div>
+<div class="row"><div class="lbl">2013-04</div><div class="track"><div class="bar" style="width:79%;background:#34d399"></div></div><div class="val">S/ 4,668,548</div></div>
+<div class="row"><div class="lbl">2013-05</div><div class="track"><div class="bar" style="width:86%;background:#34d399"></div></div><div class="val">S/ 5,080,661</div></div>
+<div class="row"><div class="lbl">2013-06</div><div class="track"><div class="bar" style="width:79%;background:#34d399"></div></div><div class="val">S/ 4,679,392</div></div>
+<div class="row"><div class="lbl">2013-07</div><div class="track"><div class="bar" style="width:85%;background:#34d399"></div></div><div class="val">S/ 5,039,033</div></div>
+<div class="row"><div class="lbl">2013-08</div><div class="track"><div class="bar" style="width:68%;background:#34d399"></div></div><div class="val">S/ 4,020,390</div></div>
+<div class="row"><div class="lbl">2013-09</div><div class="track"><div class="bar" style="width:73%;background:#34d399"></div></div><div class="val">S/ 4,345,898</div></div>
+<div class="row"><div class="lbl">2013-10</div><div class="track"><div class="bar" style="width:73%;background:#34d399"></div></div><div class="val">S/ 4,315,500</div></div>
+<div class="row"><div class="lbl">2013-11</div><div class="track"><div class="bar" style="width:72%;background:#34d399"></div></div><div class="val">S/ 4,252,082</div></div>
+<div class="row"><div class="lbl">2013-12</div><div class="track"><div class="bar" style="width:71%;background:#34d399"></div></div><div class="val">S/ 4,181,409</div></div>
+<div class="row"><div class="lbl">2014-01</div><div class="track"><div class="bar" style="width:79%;background:#34d399"></div></div><div class="val">S/ 4,677,669</div></div>
+<div class="row"><div class="lbl">2014-02</div><div class="track"><div class="bar" style="width:67%;background:#34d399"></div></div><div class="val">S/ 3,990,741</div></div>
+<div class="row"><div class="lbl">2014-03</div><div class="track"><div class="bar" style="width:75%;background:#34d399"></div></div><div class="val">S/ 4,441,219</div></div>
+<div class="row"><div class="lbl">2014-04</div><div class="track"><div class="bar" style="width:79%;background:#34d399"></div></div><div class="val">S/ 4,709,520</div></div>
+<div class="row"><div class="lbl">2014-05</div><div class="track"><div class="bar" style="width:89%;background:#34d399"></div></div><div class="val">S/ 5,279,236</div></div>
+<div class="row"><div class="lbl">2014-06</div><div class="track"><div class="bar" style="width:83%;background:#34d399"></div></div><div class="val">S/ 4,906,641</div></div>
+<div class="row"><div class="lbl">2014-07</div><div class="track"><div class="bar" style="width:93%;background:#34d399"></div></div><div class="val">S/ 5,504,247</div></div>
+<div class="row"><div class="lbl">2014-08</div><div class="track"><div class="bar" style="width:79%;background:#34d399"></div></div><div class="val">S/ 4,698,314</div></div>
+<div class="row"><div class="lbl">2014-09</div><div class="track"><div class="bar" style="width:75%;background:#34d399"></div></div><div class="val">S/ 4,465,415</div></div>
+<div class="row"><div class="lbl">2014-10</div><div class="track"><div class="bar" style="width:86%;background:#34d399"></div></div><div class="val">S/ 5,104,487</div></div>
+<div class="row"><div class="lbl">2014-11</div><div class="track"><div class="bar" style="width:78%;background:#34d399"></div></div><div class="val">S/ 4,621,813</div></div>
+<div class="row"><div class="lbl">2014-12</div><div class="track"><div class="bar" style="width:85%;background:#34d399"></div></div><div class="val">S/ 5,019,616</div></div>
+<div class="row"><div class="lbl">2015-01</div><div class="track"><div class="bar" style="width:85%;background:#34d399"></div></div><div class="val">S/ 5,061,955</div></div>
+<div class="row"><div class="lbl">2015-02</div><div class="track"><div class="bar" style="width:81%;background:#34d399"></div></div><div class="val">S/ 4,824,618</div></div>
+<div class="row"><div class="lbl">2015-03</div><div class="track"><div class="bar" style="width:88%;background:#34d399"></div></div><div class="val">S/ 5,207,352</div></div>
+<div class="row"><div class="lbl">2015-04</div><div class="track"><div class="bar" style="width:98%;background:#34d399"></div></div><div class="val">S/ 5,834,255</div></div>
+<div class="row"><div class="lbl">2015-05</div><div class="track"><div class="bar" style="width:87%;background:#34d399"></div></div><div class="val">S/ 5,152,841</div></div>
+<div class="row"><div class="lbl">2015-06</div><div class="track"><div class="bar" style="width:88%;background:#34d399"></div></div><div class="val">S/ 5,193,217</div></div>
+<div class="row"><div class="lbl">2015-07</div><div class="track"><div class="bar" style="width:100%;background:#34d399"></div></div><div class="val">S/ 5,929,023</div></div>
+<div class="row"><div class="lbl">2015-08</div><div class="track"><div class="bar" style="width:76%;background:#34d399"></div></div><div class="val">S/ 4,528,888</div></div>
+<div class="row"><div class="lbl">2015-09</div><div class="track"><div class="bar" style="width:90%;background:#34d399"></div></div><div class="val">S/ 5,361,991</div></div>
+<div class="row"><div class="lbl">2015-10</div><div class="track"><div class="bar" style="width:87%;background:#34d399"></div></div><div class="val">S/ 5,165,857</div></div>
+<div class="row"><div class="lbl">2015-11</div><div class="track"><div class="bar" style="width:79%;background:#34d399"></div></div><div class="val">S/ 4,702,590</div></div>
+<div class="row"><div class="lbl">2015-12</div><div class="track"><div class="bar" style="width:86%;background:#34d399"></div></div><div class="val">S/ 5,127,634</div></div>
+<div class="row"><div class="lbl">2016-01</div><div class="track"><div class="bar" style="width:86%;background:#34d399"></div></div><div class="val">S/ 5,103,948</div></div>
+<div class="row"><div class="lbl">2016-02</div><div class="track"><div class="bar" style="width:78%;background:#34d399"></div></div><div class="val">S/ 4,596,535</div></div>
+<div class="row"><div class="lbl">2016-03</div><div class="track"><div class="bar" style="width:90%;background:#34d399"></div></div><div class="val">S/ 5,330,251</div></div>
+<div class="row"><div class="lbl">2016-04</div><div class="track"><div class="bar" style="width:88%;background:#34d399"></div></div><div class="val">S/ 5,236,063</div></div>
+<div class="row"><div class="lbl">2016-05</div><div class="track"><div class="bar" style="width:96%;background:#34d399"></div></div><div class="val">S/ 5,704,233</div></div></div>
+  </div>
+
+  <footer>Star schema: Fact.Sale × Dimension.Customer / StockItem / Supplier — Taller Claude Code, Sesión 3.</footer>
+</body></html>

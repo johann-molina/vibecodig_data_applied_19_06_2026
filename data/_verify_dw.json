@@ -1,0 +1,10 @@
+{
+  "fact_sale_rows": 228265,
+  "fact_sale_total_incl": 198043439.45,
+  "fact_sale_total_excl": 172261341.2,
+  "fact_sale_quantity": 8950628,
+  "fact_sale_profit": 85729180.9,
+  "dim_customer_rows": 403,
+  "dim_stockitem_rows": 672,
+  "dim_supplier_rows": 28
+}
