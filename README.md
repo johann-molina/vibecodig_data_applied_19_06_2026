@@ -26,9 +26,13 @@ original de Microsoft (lo verificamos automáticamente).
 
 ## ✅ Requisitos
 
-- **Python 3.11+** y `pip` (o `uv`). *(Esto es lo único imprescindible — ver Camino A.)*
-- *(Opcional, experiencia completa)* **Docker** y un **MCP de SQL Server** en Claude Code.
-- **Claude Code** instalado (recomendado, para usar el comando `/modernize-sp`).
+**Lectura obligatoria antes de empezar:** [`REQUISITOS.md`](REQUISITOS.md) tiene la lista
+completa (qué instalar, por OS, cómo verificar) **y un prompt listo para pegarle a Claude Code
+y que te instale lo que te falte automáticamente.**
+
+**Resumen mínimo:**
+- **Camino A:** Claude Code · Python 3.11+ · `uv` · `git`
+- **Camino B (con MCP en vivo):** todo lo de arriba + Docker + Node.js + el MCP server.
 
 ---
 
@@ -36,6 +40,7 @@ original de Microsoft (lo verificamos automáticamente).
 
 ```
 README.md          ← esta guía (empieza aquí)
+REQUISITOS.md      ← qué tener instalado (Claude Code, uv, Docker, npm...) y cómo  ← LÉELO PRIMERO
 CLAUDE.md          ← reglas del proyecto (Claude Code las lee solo)
 setup/             ← docker-compose + restore.sh + export_source (montar el SQL Server legacy)
 setup/MCP.md       ← cómo configurar el MCP de SQL Server (Camino B)  ← LÉELO si vas a usar MCP
