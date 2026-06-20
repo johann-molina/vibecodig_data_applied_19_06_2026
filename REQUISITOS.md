@@ -1,57 +1,57 @@
-# REQUISITOS — qué necesitás instalado antes del taller
+# REQUIREMENTS — what you need installed before the workshop
 
-> **Atajo:** si ya tenés Claude Code instalado, abrí este repo y pegale a Claude:
-> *"Lee REQUISITOS.md, detectá qué falta en mi sistema y ayudame a instalarlo paso a paso."*
-> Te va a verificar uno por uno y te guía. Si Claude Code aún no está instalado, seguí abajo.
+> **Shortcut:** if you already have Claude Code installed, open this repo and paste this to Claude:
+> *"Read REQUISITOS.md, detect what's missing on my system, and help me install it step by step."*
+> It will check them one by one and guide you. If Claude Code isn't installed yet, follow the steps below.
 
 ---
 
-## Tabla rápida
+## Quick table
 
-| Herramienta | Para qué | ¿Obligatorio? | Verificación |
+| Tool | What for | Required? | Verify |
 |---|---|---|---|
-| **Claude Code** | El driver del taller | ✅ SÍ | `claude --version` |
-| **Python 3.11+** | Correr el pipeline DuckDB | ✅ SÍ | `python3 --version` |
-| **uv** | Manejar venv (PEP 668) | ⭐ Muy recomendado | `uv --version` |
-| **git** | Clonar repo + worktrees | ✅ SÍ | `git --version` |
-| **Docker** | Levantar SQL Server legacy | ⚠️ Solo Camino B | `docker --version` |
-| **Node.js + npm** | MCP server SQL Server | ⚠️ Solo Camino B | `npm --version` |
-| **gh** (GitHub CLI) | Abrir PRs en el capstone | ⭐ Recomendado | `gh --version` |
-| **tmux** | 2 paneles paralelos | ⭐ Recomendado | `tmux -V` |
+| **Claude Code** | The workshop driver | ✅ YES | `claude --version` |
+| **Python 3.11+** | Run the DuckDB pipeline | ✅ YES | `python3 --version` |
+| **uv** | Manage venv (PEP 668) | ⭐ Highly recommended | `uv --version` |
+| **git** | Clone repo + worktrees | ✅ YES | `git --version` |
+| **Docker** | Spin up the legacy SQL Server | ⚠️ Path B only | `docker --version` |
+| **Node.js + npm** | SQL Server MCP server | ⚠️ Path B only | `npm --version` |
+| **gh** (GitHub CLI) | Open PRs in the capstone | ⭐ Recommended | `gh --version` |
+| **tmux** | 2 parallel panes | ⭐ Recommended | `tmux -V` |
 
-> **Camino A (sin SQL Server) — mínimo:** Claude Code + Python 3.11+ + uv + git. Listo, corre todo.
-> **Camino B (con MCP en vivo) — agregar:** Docker + Node.js + el MCP server (`npm install -g @executeautomation/database-server`).
+> **Path A (no SQL Server) — minimum:** Claude Code + Python 3.11+ + uv + git. That's it, everything runs.
+> **Path B (with live MCP) — add:** Docker + Node.js + the MCP server (`npm install -g @executeautomation/database-server`).
 
 ---
 
-## Instalación por sistema operativo
+## Install by operating system
 
 ### Linux / WSL2 (Ubuntu/Debian)
 
 ```bash
 # 1. Claude Code (Anthropic CLI)
 curl -fsSL https://claude.ai/install.sh | bash
-# después: claude login
+# then: claude login
 
-# 2. Python 3.11+ (suele venir; verificalo)
-python3 --version    # si <3.11:  sudo apt install python3.11
+# 2. Python 3.11+ (usually included; double-check)
+python3 --version    # if <3.11:  sudo apt install python3.11
 
-# 3. uv (gestor de Python rápido, recomendado para evitar PEP 668)
+# 3. uv (fast Python manager, recommended to avoid PEP 668)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 4. git
 sudo apt install -y git
 
-# 5. Docker (Camino B)
+# 5. Docker (Path B)
 curl -fsSL https://get.docker.com | sh
-sudo usermod -aG docker $USER   # logout/login después
-# WSL2: instalá Docker Desktop en Windows y habilita la integración con tu distro
+sudo usermod -aG docker $USER   # logout/login afterwards
+# WSL2: install Docker Desktop on Windows and enable integration with your distro
 
-# 6. Node.js + npm (Camino B - para el MCP server)
+# 6. Node.js + npm (Path B - for the MCP server)
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# 7. gh (GitHub CLI - para PRs)
+# 7. gh (GitHub CLI - for PRs)
 sudo apt install -y gh
 gh auth login
 
@@ -59,93 +59,93 @@ gh auth login
 sudo apt install -y tmux
 ```
 
-### macOS (con Homebrew)
+### macOS (with Homebrew)
 
 ```bash
 # 1. Claude Code
-brew install anthropic/tap/claude   # o curl -fsSL https://claude.ai/install.sh | bash
+brew install anthropic/tap/claude   # or curl -fsSL https://claude.ai/install.sh | bash
 
-# 2-8 en un solo brew:
+# 2-8 in one brew:
 brew install python@3.11 uv git docker node gh tmux
-# Docker en macOS: instalá Docker Desktop desde docker.com
+# Docker on macOS: install Docker Desktop from docker.com
 ```
 
 ### Windows
 
-> **Recomendación fuerte:** usá **WSL2** (Windows Subsystem for Linux) y seguí las instrucciones de Linux/WSL2 arriba. El taller asume entorno tipo Unix.
+> **Strong recommendation:** use **WSL2** (Windows Subsystem for Linux) and follow the Linux/WSL2 instructions above. The workshop assumes a Unix-like environment.
 
 ```powershell
-# Activar WSL2 (PowerShell como administrador)
+# Enable WSL2 (PowerShell as administrator)
 wsl --install -d Ubuntu
-# Reiniciar, abrir Ubuntu, y seguir la sección Linux/WSL2
+# Reboot, open Ubuntu, and follow the Linux/WSL2 section
 ```
 
-Si no querés WSL: usá [chocolatey](https://chocolatey.org/) o [scoop](https://scoop.sh/) para instalar las herramientas. La sección Docker requiere Docker Desktop.
+If you don't want WSL: use [chocolatey](https://chocolatey.org/) or [scoop](https://scoop.sh/) to install the tools. The Docker section requires Docker Desktop.
 
 ---
 
-## Verificación todo-en-uno
+## All-in-one verification
 
-Después de instalar, pegá esto en tu terminal:
+After installing, paste this into your terminal:
 
 ```bash
-echo "=== Verificación de herramientas ==="
+echo "=== Tool verification ==="
 for tool in claude python3 uv git docker npm gh tmux; do
   if command -v $tool >/dev/null 2>&1; then
     echo "✅ $tool: $($tool --version 2>&1 | head -1)"
   else
-    echo "❌ $tool: NO instalado"
+    echo "❌ $tool: NOT installed"
   fi
 done
-echo "=== Fin ==="
+echo "=== End ==="
 ```
 
-Debería mostrar ✅ en al menos: `claude`, `python3`, `uv`, `git`. Los demás según el Camino que vayas a hacer.
+It should show ✅ for at least: `claude`, `python3`, `uv`, `git`. The rest depending on which Path you'll do.
 
 ---
 
-## Setup específico del taller (después de tener todo lo de arriba)
+## Workshop-specific setup (after you have everything above)
 
 ```bash
-# 1. Clonar este repo
-git clone <URL-DEL-REPO> && cd repo-para-clonar
+# 1. Clone this repo
+git clone <REPO-URL> && cd repo-para-clonar
 
-# 2. Crear venv con duckdb (única dependencia obligatoria)
+# 2. Create venv with duckdb (the only required dependency)
 uv venv && uv pip install duckdb
 
-# 3. (Solo Camino B) Levantar SQL Server + restaurar WideWorldImporters
+# 3. (Path B only) Spin up SQL Server + restore WideWorldImporters
 cd setup && bash restore.sh && cd ..
-#   ~10-15 min la primera vez (descarga ~180MB de backups)
+#   ~10-15 min the first time (downloads ~180MB of backups)
 
-# 4. (Solo Camino B) Instalar el MCP server y configurarlo en Claude Code
+# 4. (Path B only) Install the MCP server and configure it in Claude Code
 npm install -g @executeautomation/database-server
-# Luego seguí setup/MCP.md para crear .mcp.json
+# Then follow setup/MCP.md to create .mcp.json
 
-# 5. Verificar que el pipeline corre (Camino A, con stubs vas a ver el mensaje guía):
+# 5. Verify the pipeline runs (Path A, with stubs you'll see the guide message):
 uv run python modern/run_pipeline.py
 ```
 
 ---
 
-## Cómo pedirle a Claude Code que te instale todo
+## How to ask Claude Code to install everything for you
 
-Una vez que tengas **Claude Code** instalado, abrí esta carpeta y pegale este prompt:
+Once you have **Claude Code** installed, open this folder and paste this prompt:
 
 > ```
-> Lee REQUISITOS.md. Verificá qué herramientas tengo instaladas con el script de verificación.
-> Identificá qué falta para mi sistema operativo (detectalo con `uname` o equivalente).
-> Guiame paso a paso para instalar lo que falta, confirmando antes de cada `sudo` o cambio
-> importante. Empezamos por el Camino A (mínimo), después decidimos si vamos al Camino B.
+> Read REQUISITOS.md. Check which tools I have installed using the verification script.
+> Identify what's missing for my operating system (detect it with `uname` or equivalent).
+> Guide me step by step to install what's missing, confirming before each `sudo` or
+> important change. Let's start with Path A (minimum), then decide if we go to Path B.
 > ```
 
-Claude debería detectar tu OS, correr la verificación, e instalar lo que te falte de forma interactiva.
+Claude should detect your OS, run the verification, and install whatever's missing interactively.
 
 ---
 
-## Plan B si algo no instala
+## Plan B if something won't install
 
-- **`pip install duckdb` falla** ("externally-managed-environment"): usá `uv pip install duckdb` o creá un venv (`python3 -m venv .venv && source .venv/bin/activate && pip install duckdb`).
-- **Docker no puede iniciar**: el taller corre en **Camino A** sin Docker. Los `data/*.parquet` ya están versionados en el repo.
-- **MCP no conecta**: caés a Camino A (offline). El demo cuadra igual al céntimo.
-- **`gh` pide login en medio del taller**: corré `gh auth login` antes, no en vivo.
-- **Conexión a internet inestable**: el repo es 100% offline después de clonarlo (datos + scripts versionados). Solo Docker para descargar las imágenes la primera vez.
+- **`pip install duckdb` fails** ("externally-managed-environment"): use `uv pip install duckdb` or create a venv (`python3 -m venv .venv && source .venv/bin/activate && pip install duckdb`).
+- **Docker won't start**: the workshop runs on **Path A** without Docker. The `data/*.parquet` files are already versioned in the repo.
+- **MCP won't connect**: you fall back to Path A (offline). The demo still matches to the cent.
+- **`gh` asks to log in mid-workshop**: run `gh auth login` beforehand, not live.
+- **Unstable internet**: the repo is 100% offline after you clone it (data + scripts versioned). Only Docker needs to download images the first time.
